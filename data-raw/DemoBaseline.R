@@ -14,7 +14,7 @@ for(i in 1:Total.Samples)
   Demo.Working <- Demo.Working %>% rbind(dummy)
 }
 
-DemoBaseline <- Demo.Working %>% relocate(SampleID, Temperature, dCp)
+DemoBaseline <- Demo.Working %>% relocate(SampleID, Temperature, dCp)  %>% drop_na()
 
 # Save the data frame to the data/ directory as MaxTemp.rda
 usethis::use_data(DemoBaseline, overwrite = TRUE)
