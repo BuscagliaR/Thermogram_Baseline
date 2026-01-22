@@ -1,7 +1,8 @@
 library(tidyverse)
 
 # Read in the data.  Do some cleaning/verification
-DemoBaseline.2 <- readxl::read_excel("data-raw/baseline_demodata_small.xlsx")
+DemoBaseline.2 <- readxl::read_excel("data-raw/baseline_demodata_full.xlsx")
+DemoBaseline.2 %>% select(matches("3a|11b|12a|15b|16b|29a")) %>% select(-matches("33a|23a|13a"))
 Demo.Working <- NULL
 Total.Samples <- ncol(DemoBaseline.2)/2
 for(i in 1:Total.Samples)
